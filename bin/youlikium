@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+
+require 'youlikium'
+
+def prompt(msg)
+	a = nil
+	while a != 'y' && a!= 'n' && a!=''
+		puts "#{msg} [Y/n]: "
+		a = STDIN.readline.chomp.downcase
+	end
+	if a == 'y' or a == '' then
+		yield
+	end
+end
+
+if ARGV.length < 1 then
+	puts 'usage: youlikium <file>'
+	puts '<file> is path to file containg one youtube url per line to like'
+	exit
+end
+
+y = Youlikium.new
+puts 'please, sign in to Youtube and press enter to proceed.'
+STDIN.readline
+while not y.is_logged_in
+	puts 'You must login to Youtube to proceed.'
+	i = STDIN.readline
+	puts i
+end
+
+ARGF.each_line do | line |
+	begin
+		id = y.get_id line
+		puts "opening video #{id}"
+		y.open_video id
+		prompt "Do you want to like this video" do
+			y.like_current
+		end
+		sleep 1
+	rescue ArgumentError => e
+		puts "Error: #{e}"
+	end
+end
