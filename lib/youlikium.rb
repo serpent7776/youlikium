@@ -38,7 +38,7 @@ class Youlikium
 	end
 
 	def like_current
-		$driver.find_element(class: 'like-button-renderer-like-button-unclicked').click
+		$driver.find_element(css: 'ytd-video-primary-info-renderer #top-level-buttons button#button').click
 	end
 
 end
