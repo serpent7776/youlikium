@@ -6,13 +6,13 @@ class Youlikium
 		profile = Selenium::WebDriver::Firefox::Profile.new
 		# disable loading images
 		profile['permissions.default.image'] = 2
-		$driver = Selenium::WebDriver.for :firefox, profile: profile
-		$driver.navigate.to 'https://youtube.com'
+		@driver = Selenium::WebDriver.for :firefox, profile: profile
+		@driver.navigate.to 'https://youtube.com'
 	end
 
 	def is_logged_in
 		begin
-			$driver.find_element(id: 'avatar-btn')
+			@driver.find_element(id: 'avatar-btn')
 			return true
 		rescue Selenium::WebDriver::Error::NoSuchElementError
 			return false
@@ -34,11 +34,11 @@ class Youlikium
 	end
 
 	def open_video(id)
-		$driver.navigate.to "https://www.youtube.com/watch?v=#{id}"
+		@driver.navigate.to "https://www.youtube.com/watch?v=#{id}"
 	end
 
 	def like_current
-		$driver.find_element(css: 'ytd-video-primary-info-renderer #top-level-buttons button#button').click
+		@driver.find_element(css: 'ytd-video-primary-info-renderer #top-level-buttons button#button').click
 	end
 
 end
