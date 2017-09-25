@@ -12,7 +12,7 @@ class Youlikium
 
 	def is_logged_in
 		begin
-			$driver.find_element(id: 'yt-masthead-account-picker')
+			$driver.find_element(id: 'avatar-btn')
 			return true
 		rescue Selenium::WebDriver::Error::NoSuchElementError
 			return false
