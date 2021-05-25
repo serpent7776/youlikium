@@ -30,7 +30,7 @@ class Youlikium
 		if m then
 			return m[1]
 		end
-		raise ArgumentError.new "Could not extract video if from '#{line}'"
+		raise ArgumentError.new "Could not extract video id from '#{line}'"
 	end
 
 	def open_video(id)
