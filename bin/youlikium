@@ -41,3 +41,4 @@ ARGF.each_line do | line |
 		puts "Error: #{e}"
 	end
 end
+# vim: set sw=8 ts=8 noet:

@@ -42,3 +42,4 @@ class Youlikium
 	end
 
 end
+# vim: set sw=8 ts=8 noet:
