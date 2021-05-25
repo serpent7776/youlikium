@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
 	s.name        = 'youlikium'
-	s.version     = '0.1.1'
+	s.version     = '0.1.2'
 	s.date        = '2017-07-27'
 	s.summary     = 'automates liking youtube videos using selenium'
 	s.description = s.summary
