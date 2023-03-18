@@ -1,4 +1,5 @@
 require 'selenium-webdriver'
+require 'selenium/webdriver/common'
 
 class Youlikium
 
@@ -6,7 +7,7 @@ class Youlikium
 		profile = Selenium::WebDriver::Firefox::Profile.new
 		# disable loading images
 		profile['permissions.default.image'] = 2
-		@driver = Selenium::WebDriver.for :firefox, profile: profile
+		@driver = Selenium::WebDriver::Firefox::Driver.new profile: profile
 		@driver.navigate.to 'https://youtube.com'
 	end
 
