@@ -39,7 +39,7 @@ class Youlikium
 	end
 
 	def like_current
-		@driver.find_elements(css: '#top-level-buttons-computed > ytd-toggle-button-renderer:nth-child(1)').last.click
+		@driver.find_elements(css: 'ytd-menu-renderer.ytd-watch-metadata > div:nth-child(1) > ytd-segmented-like-dislike-button-renderer:nth-child(1) > div:nth-child(1) > ytd-toggle-button-renderer:nth-child(1) > yt-button-shape:nth-child(1) > button:nth-child(1) > yt-touch-feedback-shape:nth-child(3) > div:nth-child(1)').last.click
 	end
 
 end
